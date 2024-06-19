@@ -1,25 +1,30 @@
 local tool = Instance.new("Tool")
 tool.Name = "Lucky Strike"
 tool.RequiresHandle = false
+tool.ToolTip = "Launches a random move Hakari. If the move is repeated 3 times there will be a jackpot"
 
 local prevNumbers = {0, 0, 0}
+local cooldowni = 1
 
+local isCooldown = false
 local function launchRandomEvent()
-    local rand = math.random(1, 5)
+if isCooldown then return end
+    isCooldown = true
+    local rand = math.random(1, 6)
     
     table.remove(prevNumbers, 1)
     table.insert(prevNumbers, rand)
     
     if rand == 1 then
-       for i = 1, 5 do
+       for i = 1, 3 do
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Pachinko"):FireServer()
 end
      elseif rand == 2 then
-    for i = 1, 5 do
+    for i = 1, 2 do
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ShutterDoors"):FireServer()
 end
      elseif rand == 3 then
-        for i = 1, 3 do
+        for i = 1, 1 do
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LuckyBeatdown"):FireServer()
 end
      elseif rand == 4 then
@@ -36,7 +41,7 @@ local ohVector32 = Vector3.new(targetPosition.X, targetPosition.Y, targetPositio
 game:GetService("ReplicatedStorage").Remotes.PachinkoBall:FireServer(ohCFrame1, ohVector32)
 end
      elseif rand == 6 then
-     for i = 1, 3 do
+     for i = 1, 1 do
 		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Container"):FireServer()
 		end
     end
@@ -160,8 +165,283 @@ wait(1.1)
     H:Destroy()
         end
     end
+    
+wait(cooldowni)
+    isCooldown = false
 end
 
 tool.Activated:Connect(launchRandomEvent)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Gadget 1"
+tool.RequiresHandle = false
+tool.ToolTip = "Launches the Hakari move, but with a 100% jackpot \n Can be used in 25 seconds time"
+local cooldown = 25
+
+local isCooldown = false
+
+tool.Activated:Connect(function()
+if isCooldown then return end
+    isCooldown = true
+   local rand = math.random(1, 6)
+ if rand == 1 then
+   for i = 1, 20 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Pachinko"):FireServer()
+end
+   elseif rand == 2 then
+   for i = 1, 20 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ShutterDoors"):FireServer()
+end
+   elseif rand == 3 then
+   for i = 1, 15 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LuckyBeatdown"):FireServer()
+end
+   elseif rand == 4 then
+   for i = 1, 5 do
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ContainerKick"):FireServer()
+  end
+   elseif rand == 5 then
+   for i = 1, 10 do
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local targetPosition = mouse.Hit.Position
+local ohCFrame1 = CFrame.new(targetPosition)
+local ohVector32 = Vector3.new(targetPosition.X, targetPosition.Y, targetPosition.Z)
+
+game:GetService("ReplicatedStorage").Remotes.PachinkoBall:FireServer(ohCFrame1, ohVector32)
+end
+   elseif rand == 6 then
+   for i = 1, 30 do
+		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Container"):FireServer()
+		end
+ end
+    
+    wait(cooldown)
+    isCooldown = false
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Gadget 2"
+tool.RequiresHandle = false
+tool.ToolTip = "Launches 5 containers \n Can be used in 10 second time"
+local cooldown = 10
+
+local isCooldown = false
+tool.Activated:Connect(function()
+if isCooldown then return end
+    isCooldown = true
+
+for i = 1, 5 do
+  wait(0.3)
+  game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ContainerKick"):FireServer()
+end
+
+wait(cooldown)
+    isCooldown = false
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local function Tools()
+local tool = Instance.new("Tool")
+tool.Name = "Luck is on my side"
+tool.RequiresHandle = false
+tool.ToolTip = "Launches the Hakari move, but with a powerful version"
+local cooldown = 1
+
+local isCooldown = false
+tool.Activated:Connect(function()
+if isCooldown then return end
+    isCooldown = true
+   local rand = math.random(1, 6)
+ if rand == 1 then
+   for i = 1, 20 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Pachinko"):FireServer()
+end
+   elseif rand == 2 then
+   for i = 1, 20 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ShutterDoors"):FireServer()
+end
+   elseif rand == 3 then
+   for i = 1, 15 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LuckyBeatdown"):FireServer()
+end
+   elseif rand == 4 then
+   for i = 1, 5 do
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ContainerKick"):FireServer()
+  end
+   elseif rand == 5 then
+   for i = 1, 10 do
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local targetPosition = mouse.Hit.Position
+local ohCFrame1 = CFrame.new(targetPosition)
+local ohVector32 = Vector3.new(targetPosition.X, targetPosition.Y, targetPosition.Z)
+
+game:GetService("ReplicatedStorage").Remotes.PachinkoBall:FireServer(ohCFrame1, ohVector32)
+end
+   elseif rand == 6 then
+   for i = 1, 30 do
+		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Container"):FireServer()
+		end
+ end
+    
+    wait(cooldown)
+    isCooldown = false
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Super Gadget 1"
+tool.RequiresHandle = false
+tool.ToolTip = "Second wind | Repeats Domain Expansion if HP is less or equal than 250"
+
+tool.Activated:Connect(function()
+  if game:GetService("Players").LocalPlayer.Character.Humanoid.Health <= 250 then
+    game:GetService("ReplicatedStorage").Remotes.IdleDeathGamble:FireServer()
+  end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Super Gadget 2"
+tool.RequiresHandle = false
+tool.ToolTip = "Super precision | Pachinko automatically aims at the model \n Can be used in 10 second time"
+local cooldown = 10
+
+local isCooldown = false
+tool.Activated:Connect(function()
+if isCooldown then return end
+    isCooldown = true
+
+local player = game.Players.LocalPlayer
+local parts = workspace:GetPartBoundsInRadius(player.Character:WaitForChild("HumanoidRootPart").Position, 80)
+    local foundEntity = false
+    for _, part in ipairs(parts) do
+        if (part:IsA("BasePart") or part:IsA("UnionOperation") or part:IsA("Model")) and not part.Anchored and part:IsDescendantOf(workspace) and not part:IsDescendantOf(player.Character) then
+            foundEntity = true
+            if part then
+                for i = 1, 10 do
+local ohCFrame1 = part.CFrame
+local ohVector32 = part.Position
+
+game:GetService("ReplicatedStorage").Remotes.PachinkoBall:FireServer(ohCFrame1, ohVector32)
+end
+            end
+            break
+        end
+    end
+    if foundEntity then
+        -- Do something when an entity is found
+    else
+        -- Do something when no entity is found
+    end
+
+wait(cooldown)
+    isCooldown = false
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "God of luck"
+tool.RequiresHandle = false
+tool.ToolTip = "Triggers another non-Hakari skill. Can be used in 60 second time"
+local cooldown = 60
+
+local isCooldown = false
+tool.Activated:Connect(function()
+if isCooldown then return end
+    isCooldown = true
+local sup = math.random(1, 5)
+if sup == 1 then
+for i = 1, 5 do
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("MalevolentShrine2"):FireServer()
+		end
+elseif sup == 2 then
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Domain0.2"):FireServer()
+elseif sup == 3 then
+game:GetService("ReplicatedStorage").Megumin.Remote:FireServer()
+elseif sup == 4 then
+game:GetService("ReplicatedStorage").KJ.Remote.DropKick:FireServer()
+elseif sup == 5 then
+local count = 0
+last_pick_sin_mrazy = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
+for i = 1, 15 do
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("DomainSlashes"):FireServer()
+end
+repeat
+count = count + 1
+    local players = game.Players:GetPlayers()
+    local randomPlayer = players[math.random(1, #players)]
+    
+    if randomPlayer ~= game.Players.LocalPlayer then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = randomPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -2, 0)
+    end
+    
+    wait()
+until count == 60
+wait(0.2)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = last_pick_sin_mrazy
+end
+
+wait(cooldown)
+    isCooldown = false
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+end
+
+local function aura()
+repeat task.wait()
+game:GetService("ReplicatedStorage").AtomicFolder.gaydog:FireServer()
+until game.Players.LocalPlayer.Character.Humanoid.Health == 0
+end
+
+local function bost()
+repeat wait()
+  if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed <= 60 then
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 60
+   end
+  if game.Players.LocalPlayer.Character.Humanoid.JumpHeight <= 30 then
+  game.Players.LocalPlayer.Character.Humanoid.JumpHeight = 30
+  end
+until game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0
+end
+
+local tool = Instance.new("Tool")
+tool.Name = "Domain Expansion"
+tool.RequiresHandle = false
+tool.ToolTip = "50/50 Can be used (if unsuccessful) 30 second time"
+local cooldown = 30
+
+local isCooldown = false
+tool.Activated:Connect(function()
+  if isCooldown then return end
+    isCooldown = true
+local random = math.random(1, 2)
+if random == 1 then
+game:GetService("ReplicatedStorage").Remotes.IdleDeathGambleFail:FireServer()
+elseif random == 2 then
+tool:Destroy()
+game:GetService("ReplicatedStorage").Remotes.IdleDeathGamble:FireServer()
+wait(5)
+coroutine.wrap(aura)()
+wait(15)
+coroutine.wrap(Tools)()
+coroutine.wrap(bost)()
+end
+wait(cooldown)
+    isCooldown = false
+end)
 
 tool.Parent = game.Players.LocalPlayer.Backpack
